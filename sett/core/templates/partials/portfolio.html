@@ -1,0 +1,39 @@
+<section class="section sec3" id="portfolio">
+    <div class="main-title">
+      <h2>Mi <span>Portafolio</span><span class="bg-text">Mi Trabajo</span></h2>
+    </div>
+    <p class="port-text">
+      Proyectos terminados o en los que estoy trabajando.
+    </p>
+    <div class="portfolios">
+      {% for item in pfi %}
+        <div class="portfolio-item">
+          <div class="image">
+            <img src="{{ item.image.url }}" alt="Sea Level Predictor">
+          </div>
+          <div class="hover-items">
+            <h3>{{ item.title }}</h3>
+            <div class="icons">
+              {% if item.replit != '' %}
+              <a href="{{ item.replit }}" class="icon" target="_blank">
+                <i class="fa-regular fa-file-code"></i>
+              </a>
+              {% endif %}
+              
+              {% if item.github != '' %}
+              <a href="{{ item.github }}" class="icon" target="_blank">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              {% endif %}
+
+              {% if item.blog != '' %}
+              <a href="{{ item.blog }}" class="icon" target="_blank">
+                <i class="fa-solid fa-book"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+</section>

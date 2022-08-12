@@ -1,12 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hi</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <header class="section sec1 header active" id="home">
+    <div class="header-content">
+      <div class="left-header">
+        <div class="h-shape"></div>
+        <div class="image">
+          <img src="https://res.cloudinary.com/dsbvxelzj/image/upload/v1660334061/portfolio-personal/perfil-imagen_u0b0ba.png" alt="perfil imagen">
+        </div>
+      </div>
+      <div class="right-header">
+        <h1 class="name">Bienvenidos a mi portafolio.</h1>
+        <h1 class="text-small">Mi nombre es</h1>
+        <h1 class="name">
+          <span>Juan Pablo Fuenzalida</span></h1>
+        <h1 class="name">Analista de Datos con Python Junior.</h1>
+        <p>En busca de mejorar como analista de datos y crecer como programador.</p>
+        <div class="btn-con">
+          <a class="main-btn btn-anim" href="https://drive.google.com/uc?id=1c5cr5NxckhDLGzbgRV_-i-rH0m1g8bY5&export=download">Descargar CV<span class="btn-icon"><i class="fas fa-download"></i></span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    {% include 'partials/about.html' %}
+    {% include 'partials/portfolio.html' %}
+    {% include 'partials/blog.html' %}
+    {% include 'partials/contact.html' %}
+  </main>
+{% endblock %}

@@ -1,0 +1,22 @@
+<section class="section sec4" id="blogs">
+    <div class="blogs-content">
+      <div class="main-title">
+        <h2>Mis <span>Certificados</span><span class="bg-text">Mis Certificados</span></h2>
+      </div>
+      <div class="blogs">
+        {% for item in cert %}
+          <div class="blog">
+            <a href="{{ item.link_cert }}"><img src="{{ item.image.url }}" alt="{{ item.alt_image }}"></a>
+            <div class="blog-text">
+              <h4>
+                {{ item.title }}
+              </h4>
+              <p>
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+</section>
