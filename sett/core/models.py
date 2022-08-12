@@ -14,13 +14,14 @@ class PortfolioItem(models.Model):
     github = models.URLField(max_length=200, blank=True)
     replit = models.URLField(max_length=200, blank=True)
     blog = models.URLField(max_length=200, blank=True)
+    create_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
 
 @receiver(pre_delete, sender=PortfolioItem)
 def photo_delete(sender, instance, **kwargs):
-    cloudinary.uploader.destroy(instance.proyectos.public_id)
+    cloudinary.uploader.destroy(instance.image.public_id)
 
 
 class Certificates(models.Model):
@@ -30,6 +31,7 @@ class Certificates(models.Model):
     image = CloudinaryField('image', folder='portfolio-personal/certificados')
     alt_image = models.CharField(max_length=250)
     link_cert = models.URLField(max_length=200, blank=True)
+    create_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = 'Certificate'
@@ -39,7 +41,7 @@ class Certificates(models.Model):
 
 @receiver(pre_delete, sender=Certificates)
 def photo_delete(sender, instance, **kwargs):
-    cloudinary.uploader.destroy(instance.certificados.public_id)
+    cloudinary.uploader.destroy(instance.image.public_id)
 
 
 class Experiencia(models.Model):
@@ -48,6 +50,7 @@ class Experiencia(models.Model):
     puesto = models.CharField(max_length=100)
     empresa = models.CharField(max_length=100)
     descripcion = models.TextField()
+    create_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = 'Experiencia'
