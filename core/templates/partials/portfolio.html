@@ -1,0 +1,48 @@
+<section class="section sec4" id="portfolio">
+  <div class="blogs-content">
+    <div class="main-title">
+      <h2>Mis <span>Proyectos</span><span class="bg-text">Mis Proyectos</span></h2>
+    </div>
+    <div class="blogs">
+      {% for item in pfi %}
+        <div class="blog">
+          <a href="{{ item.github }}"><img src="{{ item.image.url }}" alt="{{ item.alt_image }}"></a>
+          <div class="blog-text">
+            <h4>
+              {{ item.title }}
+            </h4>
+            <div class="container">
+              <div class="row">
+
+                {% if item.github != '' %}
+                <div class="col d-flex justify-content-center">
+                  <h1>
+                    <a href="{{ item.github }}"><i class="fa-brands fa-github" style="color: black"></i></a>
+                  </h1>
+                </div>
+                {% endif %}
+
+                {% if item.url != '' %}
+                <div class="col d-flex justify-content-center">
+                  <h1>
+                    <a href="{{ item.url }}"><i class="fa-regular fa-file-code" style="color: black"></i></a>
+                  </h1>
+                </div>
+                {% endif %}
+
+                {% if item.blog != '' %}
+                <div class="col d-flex justify-content-center">
+                  <h1>
+                    <a href="{{ item.blog }}"><i class="fa-solid fa-book" style="color: black"></i></a>
+                  </h1>
+                </div>
+                {% endif %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
